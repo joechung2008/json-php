@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php">
-  <coverage processUncoveredFiles="true">
-    <include>
-      <file>shared/src/Arrays.php</file>
-      <file>shared/src/Number.php</file>
-      <file>shared/src/Objects.php</file>
-      <file>shared/src/Pair.php</file>
-      <file>shared/src/Parser.php</file>
-      <file>shared/src/Strings.php</file>
-      <file>shared/src/Types.php</file>
-      <file>shared/src/Value.php</file>
-    </include>
-  </coverage>
   <testsuites>
     <testsuite name="Project Test Suite">
       <directory>tests</directory>
