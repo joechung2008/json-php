@@ -19,10 +19,6 @@ Thumbs.db
 /dist/
 /coverage/
 
-# PHPUnit
-/phpunit.xml
-/phpunit.xml.dist
-
 # Cache
 .cache/
 *.cache
