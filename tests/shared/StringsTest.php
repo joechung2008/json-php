@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Shared\Strings;
+use Shared\Types;
 
 class StringsTest extends TestCase
 {

@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Shared\Arrays;
+use Shared\Types;
 
 class ArraysTest extends TestCase
 {

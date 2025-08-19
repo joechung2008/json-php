@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Shared\Pair;
+use Shared\Types;
 
 class PairTest extends TestCase
 {

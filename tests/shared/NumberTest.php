@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Shared\Number;
+use Shared\Types;
 
 class NumberTest extends TestCase
 {

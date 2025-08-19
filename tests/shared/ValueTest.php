@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use Shared\Types;
 use Shared\Value;
 
 class ValueTest extends TestCase
