@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php">
-  <coverage>
+  <coverage processUncoveredFiles="true">
     <include>
       <directory>shared/src</directory>
       <directory>cli/src</directory>
