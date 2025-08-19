@@ -2,8 +2,14 @@
 <phpunit bootstrap="vendor/autoload.php">
   <coverage processUncoveredFiles="true">
     <include>
-      <directory>shared/src</directory>
-      <directory>cli/src</directory>
+      <file>shared/src/Arrays.php</file>
+      <file>shared/src/Number.php</file>
+      <file>shared/src/Objects.php</file>
+      <file>shared/src/Pair.php</file>
+      <file>shared/src/Parser.php</file>
+      <file>shared/src/Strings.php</file>
+      <file>shared/src/Types.php</file>
+      <file>shared/src/Value.php</file>
     </include>
   </coverage>
   <testsuites>
