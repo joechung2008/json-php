@@ -28,10 +28,10 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run tests
-        run: ./vendor/bin/phpunit --coverage-xml coverage
+        run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-xml coverage
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-php-${{ matrix.php-version }}
+          name: coverage
           path: coverage
