@@ -2,7 +2,6 @@
 
 use PHPUnit\Framework\TestCase;
 use Shared\Objects;
-use Shared\Types;
 
 class ObjectsTest extends TestCase
 {
