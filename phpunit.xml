@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php">
-  <filter>
-    <whitelist>
-      <directory suffix=".php">shared/src</directory>
-      <directory suffix=".php">cli/src</directory>
-    </whitelist>
-  </filter>
+  <coverage>
+    <include>
+      <directory>shared/src</directory>
+      <directory>cli/src</directory>
+    </include>
+  </coverage>
   <testsuites>
     <testsuite name="Project Test Suite">
       <directory>tests</directory>
