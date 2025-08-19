@@ -1,0 +1,42 @@
+# PHP monorepo .gitignore
+
+# Composer dependencies
+/vendor/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Build artifacts
+/build/
+/dist/
+/coverage/
+
+# PHPUnit
+/phpunit.xml
+/phpunit.xml.dist
+
+# Cache
+.cache/
+*.cache
+
+# Misc
+*.bak
+*.tmp
+*.swp
+*.lock
+
+# Ignore CLI and shared build/output/coverage folders if present
+cli/build/
+cli/dist/
+cli/coverage/
+shared/build/
+shared/dist/
+shared/coverage/
