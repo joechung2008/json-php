@@ -47,7 +47,7 @@ class Pair
 
                 case self::VALUE:
                     $slice = substr($pair, $pos);
-                    $value = Value::parse($slice, "[ \n\r\t},]");
+                    $value = Value::parse($slice, "/[ \n\r\t},]/");
                     $pos += $value->skip;
                     $mode = self::END;
                     break;

@@ -44,7 +44,7 @@ class Arrays
                         $mode = self::END;
                     } else {
                         $slice = substr($array, $pos);
-                        $element = Value::parse($slice, "[ \n\r\t\],]");
+                        $element = Value::parse($slice, "/[ \n\r\t\],]/");
                         $elements[] = $element;
                         $pos += $element->skip;
                         $mode = self::COMMA;

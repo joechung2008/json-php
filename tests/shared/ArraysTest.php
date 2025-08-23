@@ -49,6 +49,27 @@ class ArraysTest extends TestCase
         $this->assertCount(3, $token->elements);
     }
 
+    public function testParseArrayNumbersWithBrackets()
+    {
+        $token = Parser::parse("[42]");
+        $this->assertCount(1, $token->elements);
+        $this->assertEquals(42, $token->elements[0]->value);
+    }
+
+    public function testParseArrayNumbersWithCommas()
+    {
+        $token = Parser::parse("[7,8,9]");
+        $this->assertCount(3, $token->elements);
+        $this->assertEquals([7,8,9], array_map(function ($el) {return $el->value;}, $token->elements));
+    }
+
+    public function testParseArrayNumbersWithWhitespaceAndDelimiters()
+    {
+        $token = Parser::parse("[  3 ,  4 ,  5 ]");
+        $this->assertCount(3, $token->elements);
+        $this->assertEquals([3,4,5], array_map(function ($el) {return $el->value;}, $token->elements));
+    }
+
     public function testParseInvalidArrayThrows()
     {
         $this->expectException(\Exception::class);
