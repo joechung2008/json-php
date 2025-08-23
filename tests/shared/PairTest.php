@@ -1,68 +1,70 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Shared\Pair;
+use Shared\Parser;
 
 class PairTest extends TestCase
 {
-    public function testInstance()
-    {
-        $pair = new Pair();
-        $this->assertInstanceOf(Pair::class, $pair);
-    }
-
     public function testSimpleStringKeyNumberValue()
     {
-        $token = Pair::parse('"a":1');
+        $obj = Parser::parse('{"a":1}');
+        $token = $obj->members[0];
         $this->assertEquals("a", $token->key->value);
         $this->assertEquals(1, $token->value->value);
     }
 
     public function testKeyWithWhitespace()
     {
-        $token = Pair::parse('   "key with space"   :   42   ');
+        $obj = Parser::parse('{   "key with space"   :   42   }');
+        $token = $obj->members[0];
         $this->assertEquals("key with space", $token->key->value);
         $this->assertEquals(42, $token->value->value);
     }
 
     public function testKeyWithEscapedQuote()
     {
-        $token = Pair::parse('"ke\"y":123');
+        $obj = Parser::parse('{"ke\"y":123}');
+        $token = $obj->members[0];
         $this->assertEquals('ke"y', $token->key->value);
         $this->assertEquals(123, $token->value->value);
     }
 
     public function testUnicodeKey()
     {
-        $token = Pair::parse('"ключ":7');
+        $obj = Parser::parse('{"ключ":7}');
+        $token = $obj->members[0];
         $this->assertEquals("ключ", $token->key->value);
         $this->assertEquals(7, $token->value->value);
     }
 
     public function testStringValue()
     {
-        $token = Pair::parse('"str":"hello"');
+        $obj = Parser::parse('{"str":"hello"}');
+        $token = $obj->members[0];
         $this->assertEquals("str", $token->key->value);
         $this->assertEquals("hello", $token->value->value);
     }
 
     public function testBooleanValue()
     {
-        $token = Pair::parse('"flag":true');
+        $obj = Parser::parse('{"flag":true}');
+        $token = $obj->members[0];
         $this->assertEquals("flag", $token->key->value);
         $this->assertTrue($token->value->value);
     }
 
     public function testNullValue()
     {
-        $token = Pair::parse('"nothing":null');
+        $obj = Parser::parse('{"nothing":null}');
+        $token = $obj->members[0];
         $this->assertEquals("nothing", $token->key->value);
         $this->assertNull($token->value->value);
     }
 
     public function testArrayValue()
     {
-        $token = Pair::parse('"arr":[1,2]');
+        $obj = Parser::parse('{"arr":[1,2]}');
+        $token = $obj->members[0];
         $this->assertEquals("arr", $token->key->value);
         $arrayToken = $token->value;
         $this->assertInstanceOf(\Shared\ArrayToken::class, $arrayToken);
@@ -71,7 +73,8 @@ class PairTest extends TestCase
 
     public function testObjectValue()
     {
-        $token = Pair::parse('"obj":{"x":5}');
+        $obj = Parser::parse('{"obj":{"x":5}}');
+        $token = $obj->members[0];
         $this->assertEquals("obj", $token->key->value);
         $objectToken = $token->value;
         $this->assertInstanceOf(\Shared\ObjectToken::class, $objectToken);

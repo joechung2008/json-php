@@ -1,26 +1,20 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Shared\Objects;
+use Shared\Parser;
 
 class ObjectsTest extends TestCase
 {
-    public function testInstance()
-    {
-        $objects = new Objects();
-        $this->assertInstanceOf(Objects::class, $objects);
-    }
-
     public function testParseEmptyObject()
     {
-        $token = Objects::parse('{}');
+        $token = Parser::parse('{}');
         $this->assertInstanceOf(\Shared\ObjectToken::class, $token);
         $this->assertEquals(0, count($token->members));
     }
 
     public function testParseSimpleObject()
     {
-        $token = Objects::parse('{"a":1}');
+        $token = Parser::parse('{"a":1}');
         $this->assertInstanceOf(\Shared\ObjectToken::class, $token);
         $this->assertEquals(1, count($token->members));
         $pair = $token->members[0];
@@ -30,7 +24,7 @@ class ObjectsTest extends TestCase
 
     public function testParseMultiplePairs()
     {
-        $token = Objects::parse('{"x":10,"y":20}');
+        $token = Parser::parse('{"x":10,"y":20}');
         $this->assertInstanceOf(\Shared\ObjectToken::class, $token);
         $this->assertEquals(2, count($token->members));
         $this->assertEquals("x", $token->members[0]->key->value);
@@ -41,7 +35,7 @@ class ObjectsTest extends TestCase
 
     public function testParseNestedObject()
     {
-        $token = Objects::parse('{"obj":{"b":2}}');
+        $token = Parser::parse('{"obj":{"b":2}}');
         $this->assertInstanceOf(\Shared\ObjectToken::class, $token);
         $this->assertEquals(1, count($token->members));
         $this->assertEquals("obj", $token->members[0]->key->value);
@@ -54,7 +48,7 @@ class ObjectsTest extends TestCase
 
     public function testParseObjectWithArray()
     {
-        $token = Objects::parse('{"arr":[1,2,3]}');
+        $token = Parser::parse('{"arr":[1,2,3]}');
         $this->assertInstanceOf(\Shared\ObjectToken::class, $token);
         $this->assertEquals(1, count($token->members));
         $this->assertEquals("arr", $token->members[0]->key->value);
