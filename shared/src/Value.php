@@ -2,12 +2,6 @@
 
 namespace Shared;
 
-require_once "Arrays.php";
-require_once "Number.php";
-require_once "Objects.php";
-require_once "Strings.php";
-require_once "Types.php";
-
 class Value
 {
     public const SCANNING = 0;

@@ -2,8 +2,6 @@
 
 namespace Shared;
 
-require_once "Value.php";
-
 class Parser
 {
     public const SCANNING = 0;

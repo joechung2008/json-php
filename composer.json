@@ -9,7 +9,8 @@
     }
   ],
   "require": {
-    "symfony/console": "^7.3"
+    "symfony/console": "^7.3",
+    "league/flysystem-local": "^3.30"
   },
   "autoload": {
     "psr-4": {

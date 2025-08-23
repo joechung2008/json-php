@@ -14,7 +14,7 @@ MIT
 
    Download and install PHP from [php.net](https://www.php.net/downloads).
 
-   Make sure the `mbstring` and `openssl` extensions are enabled in your `php.ini` file.
+   Make sure the `fileinfo`, `mbstring`, and `openssl` extensions are enabled in your `php.ini` file.
 
 2. **Install Composer**
 
@@ -24,9 +24,9 @@ MIT
 
    Run the following command in the project root:
 
-   ```sh
-   composer install
-   ```
+```sh
+composer install
+```
 
 ## Lint with php-cs-fixer
 
@@ -78,8 +78,39 @@ If you have not installed dependencies yet, run:
 composer install
 ```
 
-## Project Structure
+## Starting the Laravel API
 
-- `cli/src/cli.php` - CLI entry point
-- `shared/src/Parser.php` - JSON parser implementation
-- Other files in `shared/src/` provide supporting functionality.
+To start the Laravel API server:
+
+1. Open a terminal in the `api-laravel` directory.
+2. Install dependencies (if not already done):
+
+```sh
+composer install
+```
+
+3. Start the Laravel development server:
+
+```sh
+php artisan serve
+```
+
+The API will be available at `http://localhost:8000`.
+
+## Sending Test Data with REST Client (VS Code Extension)
+
+You can use the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) in VS Code to send HTTP requests to the Laravel API.
+
+1. Install the REST Client extension from the VS Code marketplace.
+2. Open any `.rest` file in the `testdata/` directory.
+3. Click "Send Request" above a request to execute it.
+4. The response from the API will appear in a new VS Code pane.
+
+Example request in `testdata/string.rest`:
+
+```http
+POST http://localhost:8000/api/parse
+Content-Type: text/plain
+
+"example string"
+```

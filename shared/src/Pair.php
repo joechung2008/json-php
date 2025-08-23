@@ -2,10 +2,6 @@
 
 namespace Shared;
 
-require_once "Strings.php";
-require_once "Types.php";
-require_once "Value.php";
-
 class Pair
 {
     public const SCANNING = 0;

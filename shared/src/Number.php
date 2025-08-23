@@ -2,8 +2,6 @@
 
 namespace Shared;
 
-require_once "Types.php";
-
 class Number
 {
     public const SCANNING = 0;
