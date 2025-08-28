@@ -12,3 +12,5 @@
 - Do not duplicate logic between CLI and API; reuse parser/utilities.
 - Prefer adding new data types/utilities in `shared/src/` and corresponding tests.
 - Avoid manual formatting; rely on php-cs-fixer.
+
+For more information, see [README.md](../README.md).
