@@ -27,7 +27,6 @@ Thumbs.db
 *.bak
 *.tmp
 *.swp
-*.lock
 
 # Ignore CLI and shared build/output/coverage folders if present
 cli/build/
