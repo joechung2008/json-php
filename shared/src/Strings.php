@@ -90,7 +90,7 @@ class Strings
                 case self::UNICODE:
                     $slice = substr($string, $pos, 4);
                     if (preg_match('/[0-9a-fA-F]{4}/', $slice)) {
-                        $value .= "\\u" . $slice;
+                        $value .= chr(hexdec($slice));
                         $pos += 4;
                         $mode = self::CHAR;
                     } else {

@@ -46,4 +46,10 @@ class StringsTest extends TestCase
         $token = Parser::parse('"line\\nbreak\\tindent\\\\slash"');
         $this->assertEquals("line\nbreak\tindent\\slash", $token->value);
     }
+
+    public function testStringWithUnicodeEscape()
+    {
+        $token = Parser::parse('"\\u0048\\u0065\\u006c\\u006c\\u006f"');
+        $this->assertEquals("Hello", $token->value);
+    }
 }
