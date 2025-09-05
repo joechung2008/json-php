@@ -8,9 +8,10 @@ $finder = Finder::create()
     ->exclude([
         'api-laravel/bootstrap',
         'api-laravel/public',
-        'api-laravel/resources/views',
         'api-laravel/storage',
-        'api-laravel/vendor'
+        'api-laravel/vendor',
+        'api-symfony/var',
+        'api-symfony/vendor',
     ]);
 
 return (new Config())

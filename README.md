@@ -97,6 +97,25 @@ php artisan serve
 
 The API will be available at `http://localhost:8000`.
 
+## Starting the Symfony API
+
+To start the Symfony API server:
+
+1. Open a terminal in the `api-symfony` directory.
+2. Install dependencies (if not already done):
+
+```sh
+composer install
+```
+
+3. Start the Symfony development server:
+
+```sh
+php -S localhost:8000 public/index.php -t public/
+```
+
+The API will be available at `http://localhost:8000`.
+
 ## Sending Test Data with REST Client (VS Code Extension)
 
 You can use the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) in VS Code to send HTTP requests to the Laravel API.
