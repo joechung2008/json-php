@@ -1,3 +1,6 @@
 {
-  "recommendations": ["humao.rest-client"]
+  "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "humao.rest-client"
+  ]
 }
