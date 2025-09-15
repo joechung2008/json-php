@@ -112,13 +112,21 @@ The API will be available at `http://localhost:8000`.
 To start the Symfony API server:
 
 1. Open a terminal in the `api-symfony` directory.
-2. Install dependencies (if not already done):
+
+2. Create an `.env` file (if not already done):
+
+```bash
+php -r "echo 'APP_SECRET=' . bin2hex(random_bytes(32)) . PHP_EOL;" > .env
+printf "APP_ENV=dev\nAPP_DEBUG=1\n" >> .env
+```
+
+3. Install dependencies (if not already done):
 
 ```sh
 composer install
 ```
 
-3. Start the Symfony development server:
+4. Start the Symfony development server:
 
 ```sh
 php -S localhost:8000 public/index.php -t public/
