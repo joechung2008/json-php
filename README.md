@@ -14,16 +14,16 @@ MIT
 
    Download and install PHP from [php.net](https://www.php.net/downloads).
 
-   Make sure the `fileinfo`, `mbstring`, and `openssl` extensions are enabled in your PHP installation.
+   Make sure the `fileinfo`, `mbstring`, `openssl`, and `dom` extensions are enabled in your PHP installation.
 
 ```bash
-# Check if these extensions are loaded by your CLI PHP.
-php -m | egrep -i 'mbstring|fileinfo|openssl'
+# Check if the fileinfo, mbstring, dom, and openssl extensions are loaded by your CLI PHP.
+php -m | egrep -i 'mbstring|fileinfo|openssl|^dom'
 ```
 
 ```bash
-# Check if the fileinfo and mbstring extensions are configured in conf.d.
-ls -l /etc/php/8.3/cli/conf.d/*mbstring* /etc/php/8.3/cli/conf.d/*fileinfo* 2>/dev/null
+# Check if the fileinfo, mbstring, and dom extensions are configured in conf.d (openssl is built-in).
+ls -l /etc/php/8.3/cli/conf.d/*mbstring* /etc/php/8.3/cli/conf.d/*fileinfo* /etc/php/8.3/cli/conf.d/*dom* 2>/dev/null
 ```
 
 2. **Install Composer**
